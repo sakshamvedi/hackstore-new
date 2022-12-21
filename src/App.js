@@ -1,24 +1,30 @@
 import logo from './logo.svg';
+import ReactDOM from "react-dom/client";
+import Basket from './Component/Basket';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-
+import {
+  createBrowserRouter,
+  RouterProvider,
+  
+} from "react-router-dom";
+import Navbar from './Component/Navbar';
+import Hero from './Component/Hero';
+import Items from './Component/Items';
+import WebDevelopment from './Component/WebDevelopment';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+
+<BrowserRouter>
+      <Routes>
+      <Route path="/" element={[<Navbar/>,<Hero/> ,<Items/>]} />
+      <Route path="/basket" element={[<Navbar/>,<Basket/>]} />
+      <Route path="/webdevelopment" element={[<Navbar/>,<WebDevelopment/>]} />
+        </Routes>
+        </BrowserRouter>
+   </>
+    
   );
 }
 
